@@ -24,7 +24,7 @@ export default function ContactForm() {
 
   const contactSchema = Yup.object().shape({
     name: Yup.string().min(2, "Too Short!").max(50, "Too Long!").required("Required"),
-    phone: Yup.number().required("Required")
+    number: Yup.number().required("Required")
   });
   
   return (
@@ -35,44 +35,22 @@ export default function ContactForm() {
         onSubmit={handleSubmit}>
         <Form className={css.form}>
           <div>
-            <label className={css.label} htmlFor="username">
-              Name
-            </label>
-            <Field
-              className={css.field}
-              id="username"
-              type="text"
-              name={nameFieldId}
-            />
-            <ErrorMessage
-              className={css.errorName}
-              name="name"
-              component="span"
-            />
+            <label className={css.label} htmlFor={nameFieldId}>Name</label>
+            <Field className={css.field} id={nameFieldId} type="text" name="name" />
+            <ErrorMessage className={css.errorName} name="name" component="span" />
           </div>
           <div>
-            <label
-              htmlFor="phone">
-              Phone number
-            </label>
+            <label htmlFor={numberFieldId}>Phone number</label>
             <Field
               className={css.field}
               id={numberFieldId}
               type="tel"
               name="number"
             />
-            <ErrorMessage
-              className={css.errorNumber}
-              name="number"
-              component="span"
-            />
+            <ErrorMessage className={css.errorNumber} name="number" component="span" />
           </div>
 
-          <button
-            className={css.btn}
-            type="submit">
-            Add contact
-          </button>
+          <button className={css.btn} type="submit">Add contact</button>
       </Form>
     </Formik>
     </div>
