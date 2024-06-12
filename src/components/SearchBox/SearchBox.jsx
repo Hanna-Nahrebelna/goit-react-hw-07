@@ -21,9 +21,8 @@ export default function SearchBox () {
         id="searchBox"
         type="text"
         className={css.searchInput}
-        placeholder="Search for..."        
-      ></input>
-        
+        placeholder="Search for..."
+      ></input>        
     </div>
   );
 }
